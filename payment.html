@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        .dsf_jh_ert {
+            line-height: 35px;
+        }
+
+        .zi_sdffw li {
+            line-height: 50px;
+            height: 50px;
+        }
+
+        .zhifu_sd {
+            width: 36px;
+            height: 36px;
+            background-position: -150px -189px;
+            transform: scale(0.8)
+        }
+
+        .zhifu_sd.ab {
+            width: 40px;
+            height: 40px;
+            background-position: -205px -185px;
+        }
+
+        .skh_detxc {
+            width: 45px;
+        }
+
+        .gou_xsdf {
+            width: 26px;
+            height: 26px;
+            background-position: -308px -198px;
+            position: absolute;
+            right: 0px;
+            top: 16px;
+            transform: scale(0.8)
+        }
+
+        .gou_xsdf.act {
+            background-position: -268px -199px;
+        }
+
+        .df_jh_erx {
+            line-height: 1.5;
+            padding-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="cen z3  mt20">
+            订单编号:{{xq_sdd.order_sn}}
+        </p>
+        <p class="fz40 z3 mt30 cen">
+            ￥ <span v-html="price_guo(xq_sdd.goods_money)" class="sd_jh_drt"></span>
+        </p>
+
+        <ul class="mui-table-view mt40 fz14">
+            <li class="mui-table-view-cell">
+                <span class="z6">收款方</span>
+                <span class="fr">{{shopinfo_p.company}}</span>
+            </li>
+        </ul>
+
+        <section class="mt10 bgff">
+            <p class="pd z6 dsf_jh_ert">
+                选择支付方式
+            </p>
+
+            <ul class="zi_sdffw">
+                <li class="btm pd" @click="hgf_sd=0">
+                    <p class="skh_detxc fl">
+                        <i class="f_i zhifu_sd"></i>
+                    </p>
+                    <section class="ov pr pl10">
+                        <span class="cz  fz14">微信支付</span>
+
+                        <i class="f_i gou_xsdf" :class="hgf_sd==0?'act':''"></i>
+                    </section>
+                </li>
+
+                <li class="btm pd" @click="hgf_sd=1">
+                    <p class="skh_detxc fl">
+                        <i class="f_i zhifu_sd ab"></i>
+                    </p>
+                    <section class="ov pr df_jh_erx pl10">
+                        <span class="cz  fz14">余额支付</span>
+                        <p class="fz12">
+                            可用余额：{{xq_sdd.total_money}}元
+                        </p>
+
+                        <i class="f_i gou_xsdf" :class="hgf_sd==1?'act':''"></i>
+                    </section>
+                </li>
+            </ul>
+
+        </section>
+
+
+
+        <p class="mt60 pd" @click="queren_er">
+            <a class="mui-btn bgls w100 fz16">确认支付</a>
+        </p>
+
+    </div>
+</body>
+
+</html>
